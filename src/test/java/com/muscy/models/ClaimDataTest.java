@@ -22,7 +22,10 @@ public class ClaimDataTest {
 
         ClaimData claimData = buildClaimData(allItemCoverages);
 
-        assertEquals(3, claimData.getAllItemCoverages().size());
+        claimData.getValidCoverages();
+
+        assertEquals(1, claimData.getAllItemCoverages().size());
+        assertEquals(1, claimData.getAllItemCoverages().get(0).getItemCoverages().size());
     }
 
     private ClaimData buildClaimData(List<AllItemCoverage> allItemCoverages) {
@@ -44,11 +47,17 @@ public class ClaimDataTest {
     private List<ItemCoverage> buildItemCoverage(List<ItemCoverageDetail> itemCoverageDetails1, List<ItemCoverageDetail> itemCoverageDetails2, List<ItemCoverageDetail> itemCoverageDetails3) {
         ItemCoverage itemCoverage1 = ItemCoverage.builder().lineCode("XXX1").itemCoverageDetails(itemCoverageDetails1).build();
         ItemCoverage itemCoverage2 = ItemCoverage.builder().lineCode("YYY2").itemCoverageDetails(itemCoverageDetails2).build();
-        ItemCoverage itemCoverage3 = ItemCoverage.builder().lineCode("ZZZ3").itemCoverageDetails(itemCoverageDetails3).build();
+        ItemCoverage itemCoverage3 = ItemCoverage.builder().lineCode("VALID1").itemCoverageDetails(itemCoverageDetails3).build();
+        ItemCoverage itemCoverage4 = ItemCoverage.builder().lineCode("ZZZ3").itemCoverageDetails(itemCoverageDetails3).build();
+        ItemCoverage itemCoverage5 = ItemCoverage.builder().lineCode("VALID2").itemCoverageDetails(itemCoverageDetails3).build();
+        ItemCoverage itemCoverage6 = ItemCoverage.builder().lineCode("ZZZ9").itemCoverageDetails(itemCoverageDetails3).build();
         List<ItemCoverage> itemCoverages = new ArrayList<>();
         itemCoverages.add(itemCoverage1);
         itemCoverages.add(itemCoverage2);
         itemCoverages.add(itemCoverage3);
+        itemCoverages.add(itemCoverage4);
+        itemCoverages.add(itemCoverage5);
+        itemCoverages.add(itemCoverage6);
         return itemCoverages;
     }
 

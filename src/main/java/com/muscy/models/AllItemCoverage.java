@@ -14,4 +14,7 @@ public class AllItemCoverage {
 
     private List<ItemCoverage> itemCoverages;
 
+    public boolean isSubjectOfInsurance() {
+        return getSubjectOfInsurance().equalsIgnoreCase("Y");
+    }
 }
